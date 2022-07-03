@@ -37,9 +37,9 @@ user_pref("webgl.disabled", true);
 // Enforce Firefox blocklist
 user_pref("extensions.blocklist.enabled", true); // [DEFAULT: true]
 // Enforce window.opener protection
-user_pref("dom.targetBlankNoOpener.enabled", true); // [DEFAULT: true FF79+]
+//user_pref("dom.targetBlankNoOpener.enabled", true); // [DEFAULT: true FF79+]
 // Enforce "window.name" protection
-user_pref("privacy.window.name.update.enabled", true);
+//user_pref("privacy.window.name.update.enabled", true); //Default
 
 
 
@@ -114,7 +114,7 @@ user_pref("network.dns.disablePrefetch", true);
 user_pref("network.predictor.enabled", false);
 user_pref("network.predictor.enable-prefetch", false);
 user_pref("network.http.speculative-parallel-limit", 0);
-
+user_pref("browser.places.speculativeConnect.enabled", false);
 
 
 /*** DNS / DoH / PROXY / SOCKS / IPv6 ***/
@@ -130,7 +130,7 @@ user_pref("network.gio.supported-protocols", "");
 
 /*** LOCATION BAR / SEARCH BAR / SUGGESTIONS / HISTORY / FORMS ***/
 // Display all parts of the url in the location bar ***/
-user_pref("browser.urlbar.trimURLs", false);
+//user_pref("browser.urlbar.trimURLs", false); // Default
 // Disable url bar using search
 user_pref("keyword.enabled", false);
 user_pref("browser.fixup.alternate.enabled", false);
@@ -154,8 +154,8 @@ user_pref("extensions.formautofill.heuristics.enabled", false);
 
 /*** PASSWORDS ***/
 /* 0=once per session (default), 1=every time it's needed, 2=after n minutes */
-user_pref("security.ask_for_password", 2);
-user_pref("security.password_lifetime", 5);
+//user_pref("security.ask_for_password", 2);
+//user_pref("security.password_lifetime", 5);
 user_pref("signon.autofillForms", false);
 user_pref("signon.formlessCapture.enabled", false);
 user_pref("network.auth.subresource-http-auth-allow", 1);
@@ -201,7 +201,7 @@ user_pref("security.cert_pinning.enforcement_level", 2);
 user_pref("security.remote_settings.crlite_filters.enabled", true);
 user_pref("security.pki.crlite_mode", 2);
 // Enforce CSP (Content Security Policy)
-user_pref("security.csp.enable", true);
+//user_pref("security.csp.enable", true); //Default
 // Enforce a security delay on some confirmation dialogs such as install, open/save
 user_pref("security.dialog_enable_delay", 1000);
 /** MIXED CONTENT **/
@@ -289,8 +289,10 @@ user_pref("permissions.delegation.enabled", false);
 user_pref("browser.download.useDownloadDir", false);
 // Disable adding downloads to the system's "recent documents" list
 user_pref("browser.download.manager.addToRecentDocs", false);
-/* Disable downloads panel opening on every download ***/
+// Disable downloads panel opening on every download
 user_pref("browser.download.alwaysOpenPanel", false);
+// Enable user interaction for security by always asking how to handle new mimetypes
+user_pref("browser.download.always_ask_before_handling_new_types", true);
 /** EXTENSIONS ***/
 // Lock down allowed extension directories
 user_pref("extensions.enabledScopes", 5);
@@ -310,10 +312,10 @@ user_pref("extensions.postDownloadThirdPartyPrompt", false);
  * 5 = (Isolate All) Cross-site cookies (TCP: Total Cookie Protection / dFPI: dynamic FPI) [1] */
 //user_pref("network.cookie.cookieBehavior", 1);
 user_pref("browser.contentblocking.category", "strict");
-user_pref("network.cookie.thirdparty.sessionOnly", true);
-user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);
+//user_pref("network.cookie.thirdparty.sessionOnly", true); // Default
+//user_pref("network.cookie.thirdparty.nonsecureSessionOnly", true);  // Default
 // Enable Local Storage Next Generation (LSNG)
-user_pref("dom.storage.next_gen", true);
+//user_pref("dom.storage.next_gen", true);
 // Enable state partitioning of service workers
 user_pref("privacy.partition.serviceWorkers", true);
 
@@ -321,15 +323,15 @@ user_pref("privacy.partition.serviceWorkers", true);
 /*** SHUTDOWN ***/
 // Delete cookies and site data on exit
 /* 0=keep until they expire (default), 2=keep until you close Firefox */
-user_pref("network.cookie.lifetimePolicy", 2);
+//user_pref("network.cookie.lifetimePolicy", 2);
 user_pref("privacy.sanitize.sanitizeOnShutdown", true);
 // Set what items to clear on shutdown
 user_pref("privacy.clearOnShutdown.cache", true);
-user_pref("privacy.clearOnShutdown.cookies", false);
+user_pref("privacy.clearOnShutdown.cookies", true);
 user_pref("privacy.clearOnShutdown.downloads", true);
 user_pref("privacy.clearOnShutdown.formdata", true);
 user_pref("privacy.clearOnShutdown.history", true);
-user_pref("privacy.clearOnShutdown.offlineApps", false);
+user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.clearOnShutdown.sessions", true);
 // Reset default items to clear with Ctrl-Shift-Del
 user_pref("privacy.cpd.cache", true);

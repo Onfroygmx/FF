@@ -33,6 +33,7 @@ user_pref("media.navigator.enabled", false);
 user_pref("browser.tabs.loadBookmarksInBackground", true);
 user_pref("browser.tabs.loadBookmarksInTabs", true);
 user_pref("browser.tabs.loadDivertedInBackground", true);
+user_pref("browser.toolbars.bookmarks.visibility", "never");
 
 /* LOCATION BAR / SEARCH / AUTO SUGGESTIONS ***/
 user_pref("browser.formfill.expire_days", 0);
@@ -55,8 +56,8 @@ user_pref("browser.search.region "US");
 user_pref("doh-rollout.home-region, "US");
 
 // Enfore cleaning cookies on shutdown: Overides arkenfox.js
-user_pref("privacy.clearOnShutdown.cookies", true);
-user_pref("privacy.clearOnShutdown.offlineApps", true);
+//user_pref("privacy.clearOnShutdown.cookies", true);
+//user_pref("privacy.clearOnShutdown.offlineApps", true);
 user_pref("privacy.cpd.cookies", true);
 user_pref("privacy.cpd.offlineApps", true);
 
